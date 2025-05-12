@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+        <h1>Welcome back, {{ current_user.username }}!</h1>
+        <a href="{{ url_for('main.dashboard') }}">Go to Dashboard</a> |
+        <a href="{{ url_for('main.logout') }}">Log Out</a>
+    {% else %}
+        <h1>Welcome to the Registration Portal</h1>
+        <a href="{{ url_for('main.register') }}">Register</a> |
+        <a href="{{ url_for('main.login') }}">Login</a>
+    {% endif %}
+</body>
+</html>
